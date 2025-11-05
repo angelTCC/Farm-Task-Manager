@@ -10,7 +10,8 @@
             </fetchPlan>
             <loader id="usersDl" readOnly="true">
                 <query>
-                    <![CDATA[select e from User e order by e.username]]>
+                    <![CDATA[select e from User e
+                    order by e.username]]>
                 </query>
             </loader>
         </collection>
@@ -64,8 +65,8 @@
                 <column property="username"/>
                 <column property="firstName"/>
                 <column property="lastName"/>
-                <column property="email"/>
-                <column property="timeZoneId"/>
+                <!--<column property="email"/>
+                <column property="timeZoneId"/>-->
                 <column property="active"/>
                 <column property="onboardingStatus"/>
                 <column property="department"/>
