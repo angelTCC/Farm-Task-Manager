@@ -1,9 +1,11 @@
 package com.company.onboarding.entity;
 
+import io.jmix.core.DeletePolicy;
 import io.jmix.core.FileRef;
 import io.jmix.core.HasTimeZone;
 import io.jmix.core.annotation.Secret;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.entity.annotation.OnDelete;
 import io.jmix.core.entity.annotation.SystemLevel;
 import io.jmix.core.metamodel.annotation.Composition;
 import io.jmix.core.metamodel.annotation.DependsOnProperties;
@@ -35,7 +37,8 @@ public class User implements JmixUserDetails, HasTimeZone {
 
     @OrderBy("sortValue")
     @Composition
-    @OneToMany(mappedBy = "user")
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
     private List<UserStep> steps;
 
     @Column(name = "JOINING_DATE")
